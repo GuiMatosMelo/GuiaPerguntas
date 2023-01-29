@@ -5,19 +5,14 @@ const app = express();
 
 //Definindo no Express a utilização do EJS como View Engine/Renderizador.
 app.set("view engine", 'ejs');
+app.use(express.static("public"));
 
 app.listen(8000, () => {
     console.log("Server iniciado.")
 })
 
-app.get("/:name/:language", (req, res) =>{
-    let name = req.params.name;
-    let language = req.params.language;
-    res.render("index", {
-        name: name,
-        language: language,
-        empresa: "Kalendae"
+app.get("/", (req, res) =>{
+    res.render("index")
     });
-})
 
 
