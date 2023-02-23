@@ -12,11 +12,14 @@ app.listen(8000, () => {
 })
 
 app.get("/", (req, res) =>{
-    res.render("index")
+    res.render("forms")
     });
 
 app.get("/forms", (req, res) =>{
     res.render("forms");
 })
 
+app.post("/salvarPergunta",(req, res)=>{
+    res.send("Formulário Recebido!");
+})
 
