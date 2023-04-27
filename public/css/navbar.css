@@ -1,0 +1,9 @@
+.navbar-cinza{
+    color: whitesmoke;
+    background-color: #1c1c1c;
+    margin-bottom: 100px;  
+}
+
+.navbar-cinza h1{
+    text-align: left;  
+}

@@ -19,6 +19,9 @@ connection
 //Definindo no Express a utilização do EJS como View Engine/Renderizador.
 app.set("view engine", 'ejs');
 app.use(express.static("public"));
+app.use(express.static(__dirname + 'public/css'));
+
+
 
 // Configurações iniciais do BodyParser.
 app.use(bodyParser.urlencoded({extended:false}))
@@ -29,7 +32,9 @@ app.listen(8000, () => {
     console.log("Server iniciado.")
 })
 app.get("/", (req, res) =>{
-    Perguntas.findAll({raw: true}).then(perguntas => {
+    Perguntas.findAll({raw: true, order:[
+        ['id','DESC'] //ASC -> Crescente || DESC -> Decrescente.
+    ]}).then(perguntas => {
         console.log(perguntas)
         res.render("index", {
             perguntas : perguntas
@@ -40,6 +45,7 @@ app.get("/", (req, res) =>{
 app.get("/forms", (req, res) =>{
     res.render("forms");
 })
+
 app.post("/salvarPergunta", (req, res) => {
     var title = req.body.title;
     var description = req.body.description;
