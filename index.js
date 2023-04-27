@@ -33,12 +33,28 @@ app.listen(8000, () => {
 })
 app.get("/", (req, res) =>{
     Perguntas.findAll({raw: true, order:[
-        ['id','DESC'] //ASC -> Crescente || DESC -> Decrescente.
+        ['id','DESC'] //ASC -> Crescente || DESC -> Decrescente.'
     ]}).then(perguntas => {
         console.log(perguntas)
         res.render("index", {
             perguntas : perguntas
         });
+    });
+});
+
+//Rota que chama perguntas de maneira individual.
+app.get("/perguntas/:id", (req,res) =>{
+    var id = req.params.id
+    Perguntas.findOne({
+        where: {id: id}
+    }).then(pergunta => {
+        if(pergunta != undefined){
+            res.render("pergunta",{
+                pergunta: pergunta
+            });
+        } else {
+            res.redirect("/");
+        }
     });
 });
 

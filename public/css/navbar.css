@@ -1,3 +1,4 @@
+
 .navbar-cinza{
     color: whitesmoke;
     background-color: #1c1c1c;
@@ -6,4 +7,13 @@
 
 .navbar-cinza h1{
     text-align: left;  
+}
+
+.navbar-cinza a{
+    text-decoration: none;
+}
+
+.linkStyle{
+
+    color: white;
 }

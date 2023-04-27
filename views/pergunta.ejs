@@ -20,20 +20,8 @@
         </div>
         <div class="container">
             <hr>
-            <h1>Perguntas</h1>
-            <hr>
-            <% perguntas.forEach( pergunta => { %>
-            <br>
-            <div class="card">
-                <div class="carder-body">
-                    <h2>Título: </h2>
-                    <p><%=pergunta.titulo %></p> 
-                </div>
-                <div class="card-footer">
-                    <a href="perguntas/<%= pergunta.id%>"><button class="btn btn-primary">Responder</button></a>
-                </div>
-            </div>
-            <% }) %>
+            <h1><%= pergunta.titulo%></h1>
+            <p><%= pergunta.descricao%></p>
         </div>
     </div>       
 </body>
